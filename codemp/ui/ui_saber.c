@@ -159,7 +159,7 @@ void UI_CacheSaberGlowGraphics(void)
 	blueOTGlowShader = trap->R_RegisterShaderNoMip("gfx/effects/OTsabers/ot_blueGlow");
 	purpleOTGlowShader = trap->R_RegisterShaderNoMip("gfx/effects/OTsabers/ot_purpleGlow");
 
-	unstableRedSaberCoreShader = trap->R_RegisterShaderNoMip("gfx/effects/sabers/saber_blade_unstable");
+	unstableRedSaberCoreShader = trap->R_RegisterShaderNoMip("gfx/effects/sabers/unstable_red_line");
 }
 
 qboolean UI_SaberModelForSaber(const char* saber_name, char* saberModel)

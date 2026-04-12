@@ -696,10 +696,10 @@ static void CG_RegisterSounds(void)
 	cgs.media.blackSaberGlowShader = trap->R_RegisterShader("gfx/effects/sabers/black_glow");
 	cgs.media.blackSaberCoreShader = trap->R_RegisterShader("gfx/effects/sabers/black_blade");
 	cgs.media.blackSaberTrail = trap->R_RegisterShader("gfx/effects/sabers/blacksaberBlur");
-	cgs.media.whiteIgniteFlare = trap->R_RegisterShader("gfx/effects/sabers/white_ignite_flare");
-	cgs.media.blackIgniteFlare = trap->R_RegisterShader("gfx/effects/sabers/black_ignite_flare");
-	cgs.media.whiteIgniteFlare02 = trap->R_RegisterShader("gfx/effects/sabers/white_ignite_flare02");
-	cgs.media.blackIgniteFlare02 = trap->R_RegisterShader("gfx/effects/sabers/black_ignite_flare02");
+	cgs.media.whiteIgniteFlare = trap->R_RegisterShader("gfx/effects/Ep2Sabers/white_ignite_flare");
+	cgs.media.blackIgniteFlare = trap->R_RegisterShader("gfx/effects/Ep3Sabers/black_ignite_flare");
+	cgs.media.whiteIgniteFlare02 = trap->R_RegisterShader("gfx/effects/Ep3Sabers/white_ignite_flare");
+	cgs.media.blackIgniteFlare02 = trap->R_RegisterShader("gfx/effects/Ep3Sabers/black_ignite_flare");
 	cgs.media.redIgniteFlare = trap->R_RegisterShader("gfx/effects/sabers/red_ignite_flare");
 	cgs.media.greenIgniteFlare = trap->R_RegisterShader("gfx/effects/sabers/green_ignite_flare");
 	cgs.media.purpleIgniteFlare = trap->R_RegisterShader("gfx/effects/sabers/purple_ignite_flare");
@@ -710,7 +710,7 @@ static void CG_RegisterSounds(void)
 	cgs.media.limeSaberCoreShader = trap->R_RegisterShader("gfx/effects/sabers/lime_line");
 	//TFA Sabers
 	cgs.media.rgbTFASaberCoreShader = trap->R_RegisterShader("gfx/effects/TFASabers/blade_TFA");
-	cgs.media.unstableRedSaberCoreShader = trap->R_RegisterShader("gfx/effects/sabers/saber_blade_unstable");
+	cgs.media.unstableRedSaberCoreShader = trap->R_RegisterShader("gfx/effects/sabers/unstable_red_line");
 
 	//Original Trilogy Sabers
 	cgs.media.otSaberCoreShader = trap->R_RegisterShader("gfx/effects/OTsabers/ot_saberCore");
