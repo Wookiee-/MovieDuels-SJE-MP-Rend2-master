@@ -2,7 +2,7 @@
 #ifndef CG_PAZAAK_H
 #define CG_PAZAAK_H
 
-// #include "cg_local.h" // This line is already present in the original file, so we don't need to change it.
+#include "cg_local.h"
 
 // server command handler
 void CG_Pazaak_ServerCmd_f(void);
@@ -12,10 +12,5 @@ void CG_Pazaak_OwnerDraw(int ownerDraw, float x, float y, float w, float h, vec4
 
 // initialize client state
 void CG_Pazaak_Init(void);
-
-// Fallback ownerdraw base if not defined in UI headers
-#ifndef UI_JKG_PAZAAK_BASE
-#define UI_JKG_PAZAAK_BASE 1000
-#endif
 
 #endif // CG_PAZAAK_H
