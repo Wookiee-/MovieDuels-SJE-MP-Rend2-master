@@ -58,7 +58,7 @@ void CG_Pazaak_ServerCmd_f(void) {
 
         #include "cg_local.h"
         #include "cg_pazaak.h"
-        #include "ui/jamp/menudef.h"
+        #include "ui/menudef.h"
 
         static int pzk_field[2][9];
         static int pzk_points[2];
@@ -69,6 +69,17 @@ void CG_Pazaak_ServerCmd_f(void) {
         static qboolean pzk_active = qfalse;
         static int pzk_pot = 0;
         static int pzk_credits[2];
+
+        // Local wrappers to access command args via trap interface
+        static int PZK_Argc(void) {
+            return trap->Cmd_Argc();
+        }
+
+        static const char* PZK_Argv(int n) {
+            static char argbuf[MAX_STRING_CHARS];
+            trap->Cmd_Argv(n, argbuf, sizeof(argbuf));
+            return argbuf;
+        }
 
         void CG_Pazaak_Init(void) {
             memset(pzk_field, -1, sizeof(pzk_field));
@@ -82,14 +93,14 @@ void CG_Pazaak_ServerCmd_f(void) {
 
         // Helper: parse int safely
         static int PZK_ParseInt(int idx) {
-            const char* s = CG_Argv(idx);
+            const char* s = PZK_Argv(idx);
             if (!s) return 0;
             return atoi(s);
         }
 
         // Server command: pzk <sub> [args...]
         void CG_Pazaak_ServerCmd_f(void) {
-            const char* sub = CG_Argv(1);
+            const char* sub = PZK_Argv(1);
             if (!sub) return;
 
             if (Q_stricmp(sub, "sc") == 0) {
@@ -146,13 +157,13 @@ void CG_Pazaak_ServerCmd_f(void) {
             if (Q_stricmp(sub, "gtc") == 0) {
                 // pzk gtc sdc <deck...> ssd <sidedeck...>
                 // parse tokens starting at 2
-                int argc = CG_Argc();
+                int argc = PZK_Argc();
                 int i = 2;
                 // expect token 'sdc' or deck numbers directly
                 // collect deck until token 'ssd'
                 int deckIdx = 0;
                 while (i < argc) {
-                    const char* tok = CG_Argv(i);
+                    const char* tok = PZK_Argv(i);
                     if (!tok) break;
                     if (Q_stricmp(tok, "ssd") == 0) { i++; break; }
                     // parse as deck card
@@ -162,7 +173,7 @@ void CG_Pazaak_ServerCmd_f(void) {
                 // parse sidedeck into player 0 for now
                 int sd = 0;
                 while (i < argc && sd < 10) {
-                    pzk_side[0][sd++] = atoi(CG_Argv(i));
+                    pzk_side[0][sd++] = atoi(PZK_Argv(i));
                     i++;
                 }
                 return;
