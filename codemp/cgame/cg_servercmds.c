@@ -1774,6 +1774,7 @@ static serverCommand_t commands[] = {
 	{"sxd", CG_ParseSiegeExtendedData},
 	{"tchat", CG_Chat_f},
 	{"tinfo", CG_ParseTeamInfo},
+	{"pzk", CG_Pazaak_ServerCmd_f},
 	{"briefmenu", CG_menubrief_f},
 	{"inGameCinematic", CG_inGameCinematic_f},
 	{"LMSWin", CG_LMSWin_f},
